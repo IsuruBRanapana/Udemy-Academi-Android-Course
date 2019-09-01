@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AnalysisUIOptions">
-    <option name="SCOPE_TYPE" value="3" />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="6535d41d-0e6f-4192-965a-ca05d6a843c4" name="Default Changelist" comment="" />
+    <list default="true" id="52e29426-610b-49fa-a70a-9ce07371b0d6" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,7 +15,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectId" id="1QE923luCo65LspOKyC89vUAQCJ" />
+  <component name="ProjectId" id="1QEoMmBqonYYyOO44Rh8SasTsaa" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -36,12 +33,12 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="jOption" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="jOptionPane.jOption" />
-      <module name="JOptionPane" />
+    <configuration name="CompareString" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.Compare.String.CompareString" />
+      <module name="Compare Strings" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="jOptionPane.*" />
+          <option name="PATTERN" value="com.Compare.String.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -51,7 +48,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.jOption" />
+        <item itemvalue="Application.CompareString" />
       </list>
     </recent_temporary>
   </component>
@@ -60,12 +57,12 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="6535d41d-0e6f-4192-965a-ca05d6a843c4" name="Default Changelist" comment="" />
-      <created>1567324678045</created>
+      <changelist id="52e29426-610b-49fa-a70a-9ce07371b0d6" name="Default Changelist" comment="" />
+      <created>1567345070626</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1567324678045</updated>
-      <workItem from="1567324681873" duration="2379000" />
+      <updated>1567345070626</updated>
+      <workItem from="1567345075380" duration="1588000" />
     </task>
     <servers />
   </component>
