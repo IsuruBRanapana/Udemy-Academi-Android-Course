@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c017fca5-538c-4015-b032-3e4fa5ee9447" name="Default Changelist" comment="" />
+    <list default="true" id="a273fcd4-732c-4d17-aa81-c80fe248540a" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,7 +15,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectId" id="1QCZCdA3Vsvjnf1X9klG3gmunND" />
+  <component name="ProjectId" id="1QCbaH8jfvxpdHi7C2KDzmF2BTh" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -33,12 +33,12 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="HelloWorld" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.foundation.HelloWorld" />
-      <module name="Hello world" />
+    <configuration name="Variables_Literals_Constants" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.Variables_Literals_Constants" />
+      <module name="Variables" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.foundation.*" />
+          <option name="PATTERN" value="com.example.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -48,7 +48,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.HelloWorld" />
+        <item itemvalue="Application.Variables_Literals_Constants" />
       </list>
     </recent_temporary>
   </component>
@@ -57,12 +57,12 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="c017fca5-538c-4015-b032-3e4fa5ee9447" name="Default Changelist" comment="" />
-      <created>1567276414707</created>
+      <changelist id="a273fcd4-732c-4d17-aa81-c80fe248540a" name="Default Changelist" comment="" />
+      <created>1567277586786</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1567276414707</updated>
-      <workItem from="1567276427077" duration="1127000" />
+      <updated>1567277586786</updated>
+      <workItem from="1567277593074" duration="2832000" />
     </task>
     <servers />
   </component>
