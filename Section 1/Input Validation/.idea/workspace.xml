@@ -32,9 +32,22 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.UserControlledLoop">
+  <component name="RunManager" selected="Application.RunningTotals">
     <configuration name="InputValidation" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.calculation.InputValidation" />
+      <module name="Input Validation" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.calculation.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RunningTotals" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.calculation.RunningTotals" />
       <module name="Input Validation" />
       <extension name="coverage">
         <pattern>
@@ -61,6 +74,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.RunningTotals" />
         <item itemvalue="Application.UserControlledLoop" />
         <item itemvalue="Application.InputValidation" />
       </list>
@@ -76,7 +90,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1567436537851</updated>
-      <workItem from="1567436546786" duration="1711000" />
+      <workItem from="1567436546786" duration="3282000" />
     </task>
     <servers />
   </component>
