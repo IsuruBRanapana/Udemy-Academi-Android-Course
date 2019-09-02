@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e9f5d35f-6315-4205-8233-007d015f276a" name="Default Changelist" comment="" />
+    <list default="true" id="82feec32-8fdf-4865-9dae-031cf7082a14" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,7 +15,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectId" id="1QF7n6L64a7A9NbA6LJ2MWJnHuD" />
+  <component name="ProjectId" id="1QHnl7NqI14yztGA335pAfDE3v7" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -33,12 +33,12 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="TheSwitchCase" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.switchStatement.TheSwitchCase" />
-      <module name="Switch Statement" />
+    <configuration name="InputValidation" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.calculation.InputValidation" />
+      <module name="Input Validation" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.switchStatement.*" />
+          <option name="PATTERN" value="com.example.calculation.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -48,7 +48,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.TheSwitchCase" />
+        <item itemvalue="Application.InputValidation" />
       </list>
     </recent_temporary>
   </component>
@@ -57,12 +57,12 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="e9f5d35f-6315-4205-8233-007d015f276a" name="Default Changelist" comment="" />
-      <created>1567354654036</created>
+      <changelist id="82feec32-8fdf-4865-9dae-031cf7082a14" name="Default Changelist" comment="" />
+      <created>1567436537851</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1567354654036</updated>
-      <workItem from="1567354658168" duration="1616000" />
+      <updated>1567436537851</updated>
+      <workItem from="1567436546786" duration="1081000" />
     </task>
     <servers />
   </component>
