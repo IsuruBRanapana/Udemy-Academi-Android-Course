@@ -32,7 +32,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.RunningTotals">
+  <component name="RunManager" selected="Application.SentinelValues">
     <configuration name="InputValidation" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.calculation.InputValidation" />
       <module name="Input Validation" />
@@ -59,6 +59,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SentinelValues" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.calculation.SentinelValues" />
+      <module name="Input Validation" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.calculation.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="UserControlledLoop" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.calculation.UserControlledLoop" />
       <module name="Input Validation" />
@@ -74,6 +87,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.SentinelValues" />
         <item itemvalue="Application.RunningTotals" />
         <item itemvalue="Application.UserControlledLoop" />
         <item itemvalue="Application.InputValidation" />
@@ -90,7 +104,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1567436537851</updated>
-      <workItem from="1567436546786" duration="3282000" />
+      <workItem from="1567436546786" duration="4215000" />
     </task>
     <servers />
   </component>
