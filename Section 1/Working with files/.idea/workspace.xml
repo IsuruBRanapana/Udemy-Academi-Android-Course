@@ -32,7 +32,33 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.ReadingFromFiles">
+  <component name="RunManager" selected="Application.CalcAverageFile">
+    <configuration name="CalcAverageFile" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.textFiles.CalcAverageFile" />
+      <module name="Working with files" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.textFiles.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NumberAddingToTXT" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.textFiles.NumberAddingToTXT" />
+      <module name="Working with files" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.textFiles.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ReadingFromFiles" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.textFiles.ReadingFromFiles" />
       <module name="Working with files" />
@@ -61,6 +87,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.CalcAverageFile" />
+        <item itemvalue="Application.NumberAddingToTXT" />
         <item itemvalue="Application.ReadingFromFiles" />
         <item itemvalue="Application.WritingToFiles" />
       </list>
@@ -76,7 +104,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1567492174275</updated>
-      <workItem from="1567492177306" duration="1330000" />
+      <workItem from="1567492177306" duration="2585000" />
     </task>
     <servers />
   </component>
