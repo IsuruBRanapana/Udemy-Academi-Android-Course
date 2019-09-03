@@ -32,7 +32,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.HighestAndLowest">
+  <component name="RunManager" selected="Application.SumAndAverage">
     <configuration name="CompareArrays" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.compare.array.CompareArrays" />
       <module name="Compare array" />
@@ -72,8 +72,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SumAndAverage" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.compare.array.SumAndAverage" />
+      <module name="Compare array" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.compare.array.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.SumAndAverage" />
         <item itemvalue="Application.HighestAndLowest" />
         <item itemvalue="Application.CopyArrays" />
         <item itemvalue="Application.CompareArrays" />
@@ -90,7 +104,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1567521623025</updated>
-      <workItem from="1567521628262" duration="2769000" />
+      <workItem from="1567521628262" duration="3788000" />
     </task>
     <servers />
   </component>
