@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ID Finder</string>
+    <string name="hint_id">Please enter ID number</string>
+    <string name="btn_1">Genarate</string>
+</resources>
