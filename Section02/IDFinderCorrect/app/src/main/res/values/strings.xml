@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">IDFinder Correct</string>
+    <string name="etId">Please Enter the ID number</string>
+    <string name="btnSubmit">Submit</string>
+    <string name="bYearTxt">The birth Year is </string>
+    <string name="newLine" />
+    <string name="GenderTxt">The Gender is </string>
+    <string name="Male">Male</string>
+    <string name="Female">Female</string>
+</resources>
