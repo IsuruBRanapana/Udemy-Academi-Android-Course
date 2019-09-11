@@ -1,6 +1,7 @@
 package myfirst.isuru.com.explicitintents;
 
 import android.content.Intent;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
     EditText etName;
     Button btnAct1,btnAct2;
     TextView tvResult;
+    final int ACTIVITY3=3;
 
 
     @Override
@@ -42,8 +44,27 @@ public class MainActivity extends AppCompatActivity {
         btnAct2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (etName.getText().toString().isEmpty()){
+                    Toast.makeText(MainActivity.this,"please Enter All fields",Toast.LENGTH_SHORT).show();
+                }else {
+                    Intent intent=new Intent(MainActivity.this,myfirst.isuru.com.explicitintents.Main3Activity.class);
+                    startActivityForResult(intent,ACTIVITY3);
+                }
 
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode==ACTIVITY3){
+            if (resultCode==RESULT_OK){
+                tvResult.setText(data.getStringExtra("surname"));
+            }
+            if (resultCode==RESULT_CANCELED){
+                tvResult.setText("No Data received");
+            }
+        }
     }
 }
