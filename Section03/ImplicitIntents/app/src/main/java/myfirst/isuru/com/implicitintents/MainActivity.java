@@ -1,6 +1,7 @@
 package myfirst.isuru.com.implicitintents;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -27,19 +28,22 @@ public class MainActivity extends AppCompatActivity {
         btnCallFri.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent=new Intent(Intent.ACTION_DIAL, Uri.parse("tel:0713586640"));
+                startActivity(intent);
             }
         });
         btnWeb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent=new Intent(Intent.ACTION_VIEW,Uri.parse("http://google.lk"));
+                startActivity(intent);
             }
         });
         btnMap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent=new Intent(Intent.ACTION_VIEW,Uri.parse("geo:0.0?q=Ranapana , Sri lanka"));
+                startActivity(intent);
             }
         });
     }
