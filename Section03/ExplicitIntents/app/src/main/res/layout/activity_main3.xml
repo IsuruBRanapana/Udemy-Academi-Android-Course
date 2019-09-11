@@ -30,4 +30,15 @@
         android:background="@color/colorAccent"
         android:text="@string/submit"
         android:textColor="@color/colorText" />
+
+    <Button
+        android:id="@+id/btnCancel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:background="@color/colorAccent"
+        android:text="@string/cancel"
+        android:textColor="@color/colorText" />
 </LinearLayout>

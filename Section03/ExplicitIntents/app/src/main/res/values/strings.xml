@@ -7,4 +7,5 @@
     <string name="welcome_to_activity_02">Welcome to Activity 02</string>
     <string name="please_enter_your_surname">Please Enter Your surname</string>
     <string name="submit">Submit</string>
+    <string name="cancel">Cancel</string>
 </resources>

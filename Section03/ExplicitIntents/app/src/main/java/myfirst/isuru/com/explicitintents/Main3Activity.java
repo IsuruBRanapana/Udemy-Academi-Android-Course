@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 public class Main3Activity extends AppCompatActivity {
     EditText etSurname;
-    Button btnSubmitAct3;
+    Button btnSubmitAct3,btnCancel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +19,7 @@ public class Main3Activity extends AppCompatActivity {
         setContentView(R.layout.activity_main3);
         etSurname=findViewById(R.id.etSurname);
         btnSubmitAct3=findViewById(R.id.btnSubmitAct3);
+        btnCancel=findViewById(R.id.btnCancel);
         btnSubmitAct3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -31,6 +32,13 @@ public class Main3Activity extends AppCompatActivity {
                     setResult(RESULT_OK,intent);
                     Main3Activity.this.finish();
                 }
+            }
+        });
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setResult(RESULT_CANCELED);
+                Main3Activity.this.finish();
             }
         });
     }
