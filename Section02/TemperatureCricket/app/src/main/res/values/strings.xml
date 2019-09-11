@@ -8,4 +8,5 @@
                         </string>
     <string name="etTemp">Enter the temperature </string>
     <string name="btmSubmit">Submit</string>
+    <string name="txtTemp">The temperature is</string>
 </resources>
