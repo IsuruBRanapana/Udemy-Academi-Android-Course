@@ -9,12 +9,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     TextView tvHeading;
     ImageView ivCall,ivAngryFace,ivWebSite,ivLocation;
     Button btnNewContact;
     final int CREATECONTACT=3;
+    String name="",number="",webSite="",location="",mood="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
         ivCall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String number=getIntent().getStringExtra("number");
                 Intent intent=new Intent(Intent.ACTION_DIAL, Uri.parse("tel:"+number));
                 startActivity(intent);
             }
@@ -43,13 +44,15 @@ public class MainActivity extends AppCompatActivity {
         ivWebSite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent=new Intent(Intent.ACTION_VIEW, Uri.parse("http://"+webSite));
+                startActivity(intent);
             }
         });
         ivLocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent=new Intent(Intent.ACTION_VIEW, Uri.parse("geo:0.0?q="+location));
+                startActivity(intent);
             }
         });
         btnNewContact.setOnClickListener(new View.OnClickListener() {
@@ -70,10 +73,23 @@ public class MainActivity extends AppCompatActivity {
                 ivAngryFace.setVisibility(View.VISIBLE);
                 ivLocation.setVisibility(View.VISIBLE);
                 ivWebSite.setVisibility(View.VISIBLE);
-                String name=getIntent().getStringExtra("name");
-                String number=getIntent().getStringExtra("number");
-                String webSite=getIntent().getStringExtra("webSite");
-                String location=getIntent().getStringExtra("location");
+
+
+                name=data.getStringExtra("name");
+                number=data.getStringExtra("number");
+                webSite=data.getStringExtra("webSite");
+                location=data.getStringExtra("location");
+                mood=data.getStringExtra("mood");
+
+                if (mood.equals("Angry")){
+                    ivAngryFace.setImageResource(R.drawable.angryface);
+                }else if (mood.equals("Normal")){
+                    ivAngryFace.setImageResource(R.drawable.normalface);
+                }else {
+                    ivAngryFace.setImageResource(R.drawable.happyface);
+                }
+            }else {
+                Toast.makeText(MainActivity.this,"Please Enter Name",Toast.LENGTH_SHORT).show();
             }
         }
     }
