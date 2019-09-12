@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Contact Book</string>
+    <string name="contact_app">Contact App</string>
+    <string name="create_new_contact">Create New Contact</string>
+    <string name="please_enter_your_name">Please Enter your Name</string>
+    <string name="please_enter_your_number">Please Enter Your Number</string>
+    <string name="please_enter_your_website">Please Enter Your Website</string>
+    <string name="please_enter_your_location">Please Enter Your Location</string>
+</resources>
