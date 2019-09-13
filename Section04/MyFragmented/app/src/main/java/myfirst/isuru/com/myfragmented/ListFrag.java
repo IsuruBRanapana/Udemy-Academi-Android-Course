@@ -41,10 +41,7 @@ public class ListFrag extends ListFragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        ArrayList<String> data=new ArrayList<>();
-        data.add("1. Item 1");
-        data.add("2. Item 2");
-        data.add("3. Item 3");
+        String[] data=getResources().getStringArray(R.array.pieces);
 
         setListAdapter(new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1, data));
         activity.onItemSelected(0);

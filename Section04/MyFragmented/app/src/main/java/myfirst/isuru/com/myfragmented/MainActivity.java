@@ -7,23 +7,20 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements ListFrag.ItemSelected {
+public class MainActivity extends AppCompatActivity implements ListFrag.ItemSelected{
     TextView tvDescription;
-    ArrayList<String> description;
+    String [] descriptions;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         tvDescription=findViewById(R.id.tvDescription);
 
-        description=new ArrayList<>();
-        description.add("This is description 1");
-        description.add("This is description 2");
-        description.add("This is description 3");
-    }
+        descriptions=getResources().getStringArray(R.array.descriptions);
 
+    }
     @Override
-    public void onItemSelected(int index) {
-        tvDescription.setText(description.get(index));
+    public void onItemSelected(int index){
+        tvDescription.setText(descriptions[index]);
     }
 }
