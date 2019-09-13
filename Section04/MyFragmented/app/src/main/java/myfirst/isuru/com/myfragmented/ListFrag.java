@@ -44,7 +44,10 @@ public class ListFrag extends ListFragment {
         String[] data=getResources().getStringArray(R.array.pieces);
 
         setListAdapter(new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1, data));
-        activity.onItemSelected(0);
+        if (this.getActivity().findViewById(R.id.layout_land)!=null){
+            activity.onItemSelected(0);
+        }
+
     }
 
     @Override
