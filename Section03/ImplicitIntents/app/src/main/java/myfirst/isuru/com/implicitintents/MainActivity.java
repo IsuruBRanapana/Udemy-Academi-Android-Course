@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         btnCallFri=findViewById(R.id.btnCallFri);
         btnWeb=findViewById(R.id.btnWeb);
         btnMap=findViewById(R.id.btnMap);
-
+        final String number1="0713586640";
         btnCall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         btnCallFri.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(Intent.ACTION_DIAL, Uri.parse("tel:0713586640"));
+                Intent intent=new Intent(Intent.ACTION_DIAL, Uri.parse("tel:"+number1));
                 startActivity(intent);
             }
         });
