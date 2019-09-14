@@ -1,12 +1,14 @@
 package myfirst.isuru.com.myrecyclerview;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -27,7 +29,10 @@ public class MainActivity extends AppCompatActivity implements PersonAdapter.Ite
         recyclerView=findViewById(R.id.list);
         recyclerView.setHasFixedSize(true);
 
-        myLayoutManager = new LinearLayoutManager(this);
+        //myLayoutManager = new LinearLayoutManager(this);
+        //myLayoutManager=new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false);
+        //myLayoutManager=new GridLayoutManager(this,3,LinearLayoutManager.VERTICAL,false);
+        myLayoutManager=new GridLayoutManager(this,3,LinearLayoutManager.HORIZONTAL,false);
         recyclerView.setLayoutManager(myLayoutManager);
 
         btnAdd=findViewById(R.id.btnAdd);
@@ -35,6 +40,7 @@ public class MainActivity extends AppCompatActivity implements PersonAdapter.Ite
             @Override
             public void onClick(View v) {
                 people.add(new Person("Isuru","Ranapana","plane"));
+                myAdapter.notifyDataSetChanged();
             }
         });
 
