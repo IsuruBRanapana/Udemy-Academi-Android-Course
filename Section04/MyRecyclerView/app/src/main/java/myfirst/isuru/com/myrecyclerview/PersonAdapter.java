@@ -15,15 +15,22 @@ import androidx.recyclerview.widget.RecyclerView;
 public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.ViewHolder> {
 
     private ArrayList<Person> people;
+    ItemClicked activity;
 
-    public PersonAdapter(Context context, ArrayList<Person> list){
+    public interface ItemClicked{
+        void onItemClicked(int index);
+    }
+
+    public PersonAdapter(Context context, ArrayList<Person> list) {
         people=list;
+        activity=(ItemClicked) context;
+
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         ImageView ivPref;
         TextView tvName,tvSurname;
-        public ViewHolder(@NonNull View itemView) {
+        public ViewHolder(@NonNull final View itemView) {
             super(itemView);
             ivPref=itemView.findViewById(R.id.ivPref);
             tvName=itemView.findViewById(R.id.tvName);
@@ -32,7 +39,7 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.ViewHolder
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
+                    activity.onItemClicked(people.indexOf((Person) v.getTag()));
                 }
             });
         }
