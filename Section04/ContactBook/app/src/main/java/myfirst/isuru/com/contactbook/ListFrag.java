@@ -3,7 +3,10 @@ package myfirst.isuru.com.contactbook;
 
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +18,10 @@ import android.view.ViewGroup;
  */
 public class ListFrag extends Fragment {
 
-
+    RecyclerView recyclerView;
+    RecyclerView.Adapter myAdapter;
+    RecyclerView.LayoutManager myLayoutManager;
+    View view;
     public ListFrag() {
         // Required empty public constructor
     }
@@ -24,8 +30,21 @@ public class ListFrag extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_list, container, false);
+        view=inflater.inflate(R.layout.fragment_list, container, false);
+        return view;
     }
 
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        recyclerView=view.findViewById(R.id.list);
+        recyclerView.setHasFixedSize(true);
+
+        myLayoutManager=new LinearLayoutManager(this.getActivity());
+        recyclerView.setLayoutManager(myLayoutManager);
+
+        myAdapter=new PersonAdapter(this.getActivity(),ApplicationClass.people);
+        recyclerView.setAdapter(myAdapter);
+
+    }
 }
