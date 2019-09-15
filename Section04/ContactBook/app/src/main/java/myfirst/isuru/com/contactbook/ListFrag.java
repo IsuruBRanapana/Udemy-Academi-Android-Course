@@ -47,4 +47,8 @@ public class ListFrag extends Fragment {
         recyclerView.setAdapter(myAdapter);
 
     }
+
+    public void notifyDataChanged(){
+        myAdapter.notifyDataSetChanged();
+    }
 }
