@@ -11,19 +11,26 @@
         android:name="myfirst.isuru.com.contactbook.ListFrag"
         android:layout_width="200dp"
         android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:layout="@layout/fragment_list" />
 
     <LinearLayout
-        android:layout_width="200dp"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/fragment"
+        app:layout_constraintTop_toTopOf="parent">
 
         <fragment
             android:id="@+id/fragment2"
             android:name="myfirst.isuru.com.contactbook.DetailFrag"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_weight="3"
             tools:layout="@layout/fragment_detail" />
 
         <fragment
@@ -31,7 +38,7 @@
             android:name="myfirst.isuru.com.contactbook.AddPersonFrag"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_weight="4"
             tools:layout="@layout/fragment_add_person" />
 
     </LinearLayout>
