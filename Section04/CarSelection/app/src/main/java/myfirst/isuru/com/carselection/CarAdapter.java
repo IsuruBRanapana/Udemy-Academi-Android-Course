@@ -14,9 +14,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class CarAdapter extends RecyclerView.Adapter<CarAdapter.ViewHolder> {
     ArrayList<Car> cars;
-
+    ItemClicked activity;
+    public interface ItemClicked{
+        void onItemClicked(int index);
+    }
     public CarAdapter(Context context,ArrayList<Car> list) {
         cars=list;
+        activity=(ItemClicked) context;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
@@ -31,7 +35,7 @@ public class CarAdapter extends RecyclerView.Adapter<CarAdapter.ViewHolder> {
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
+                    activity.onItemClicked(cars.indexOf((Car)v.getTag()));
                 }
             });
         }
