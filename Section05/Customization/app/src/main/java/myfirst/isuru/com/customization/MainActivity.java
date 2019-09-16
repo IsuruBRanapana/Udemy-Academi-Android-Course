@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         etfirstName=(AutoCompleteTextView) findViewById(R.id.etfirstName);
 
         String [] names={"Jane","John","Janny","Jenny","Johny","Jack","Jackson","Jennifer"};
-        ArrayAdapter<String> adapter=new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line,names);
+        ArrayAdapter<String> adapter=new ArrayAdapter<String>(this, R.layout.custom_view_list,names);
         etfirstName.setThreshold(1);
         etfirstName.setAdapter(adapter);
 
