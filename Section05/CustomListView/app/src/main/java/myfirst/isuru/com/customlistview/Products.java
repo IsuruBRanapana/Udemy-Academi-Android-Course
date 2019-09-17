@@ -31,7 +31,7 @@ public class Products {
         return price;
     }
 
-    public boolean isSale() {
+    public boolean getSale() {
         return sale;
     }
 }
