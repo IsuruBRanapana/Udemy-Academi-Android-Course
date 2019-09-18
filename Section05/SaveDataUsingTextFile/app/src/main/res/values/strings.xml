@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Save Data Using Text File</string>
+    <string name="enter_your_name">Enter Your Name</string>
+    <string name="enter_your_surname">Enter Your Surname</string>
+</resources>
