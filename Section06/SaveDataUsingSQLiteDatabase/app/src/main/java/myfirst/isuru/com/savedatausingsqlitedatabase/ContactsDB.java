@@ -81,4 +81,16 @@ public class ContactsDB {
         c.close();
         return result;
     }
+
+    public long deleteEntry(String rowID){
+        return ourDatabase.delete(DATABASE_TABLE,KEY_ID+"=?",new String[]{rowID});
+    }
+
+    public long updateEntry(String rowID, String name, String cell){
+        ContentValues cv=new ContentValues();
+        cv.put(KEY_NAME,name);
+        cv.put(KEY_CELL,cell);
+
+        return ourDatabase.update(DATABASE_TABLE,cv,KEY_ID+"=?",new String[]{rowID});
+    }
 }
