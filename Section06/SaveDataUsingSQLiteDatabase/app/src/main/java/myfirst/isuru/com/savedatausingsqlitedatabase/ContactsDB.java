@@ -32,6 +32,12 @@ public class ContactsDB {
         }
 
         @Override
+        public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+            db.execSQL("DROP TABLE IF EXISTS "+DATABASE_TABLE);
+            onCreate(db);
+        }
+
+        @Override
         public void onCreate(SQLiteDatabase db) {
             /*
             * CREATE TABLE (_id INTEGER PRIMARY KEY AUTO INCREMENT,
@@ -42,12 +48,6 @@ public class ContactsDB {
                     +KEY_NAME+" TEXT NOT NULL, "+KEY_CELL+" TEXT NOT NULL);";
             db.execSQL(sqlcode);
 
-        }
-
-        @Override
-        public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-            db.execSQL("DROP TABLE IF EXISTS "+DATABASE_TABLE);
-            onCreate(db);
         }
     }
 
