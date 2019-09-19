@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Save Data Using SQLite Database</string>
+    <string name="et_Name">Enter Your Name</string>
+    <string name="et_Cell">Enter Your Tel No</string>
+    <string name="btn_Submit">Submit</string>
+    <string name="btn_Show_Data">Show Data</string>
+    <string name="btn_Edit_Date">Edit Data</string>
+    <string name="btn_Delete_Data">Delete Data</string>
+    <string name="tv_data">Data that includes in Database are shown in here</string>
+</resources>
