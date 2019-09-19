@@ -2,6 +2,7 @@ package myfirst.isuru.com.savedatausingsqlitedatabase;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -65,5 +66,19 @@ public class ContactsDB {
         cv.put(KEY_NAME,name);
         cv.put(KEY_CELL,cell);
         return ourDatabase.insert(DATABASE_TABLE,null,cv);
+    }
+
+    public String getData(){
+        String [] columns=new String[]{KEY_ID,KEY_NAME,KEY_CELL};
+        Cursor c=ourDatabase.query(DATABASE_TABLE,columns,null,null,null,null,null);
+        String result="";
+        int iRowId=c.getColumnIndex(KEY_ID);
+        int iName=c.getColumnIndex(KEY_NAME);
+        int iCell=c.getColumnIndex(KEY_CELL);
+        for (c.moveToFirst();!c.isAfterLast();c.moveToNext()){
+            result=result+c.getString(iRowId)+" : "+c.getString(iName)+" "+c.getString(iCell)+"\n";
+        }
+        c.close();
+        return result;
     }
 }
