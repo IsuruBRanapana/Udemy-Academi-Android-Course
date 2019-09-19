@@ -1,6 +1,8 @@
 package myfirst.isuru.com.savedatausingsqlitedatabase;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -35,7 +37,7 @@ public class ContactsDB {
             * person_name TEXT NOT NULL, _cell TEXT NOT NULL);
             * */
 
-            String sqlcode ="CREATE TABLE "+DATABASE_TABLE+" ("+KEY_ID+" INTEGER PRIMARY KEY AUTO INCREMENT, "
+            String sqlcode ="CREATE TABLE "+DATABASE_TABLE+" ("+KEY_ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "
                     +KEY_NAME+" TEXT NOT NULL, "+KEY_CELL+" TEXT NOT NULL);";
             db.execSQL(sqlcode);
 
@@ -46,5 +48,22 @@ public class ContactsDB {
             db.execSQL("DROP TABLE IF EXISTS "+DATABASE_TABLE);
             onCreate(db);
         }
+    }
+
+    public ContactsDB open() throws SQLException{
+        ourHelper =new DBHelper(ourContext);
+        ourDatabase=ourHelper.getWritableDatabase();
+        return this;
+    }
+
+    public void close(){
+        ourHelper.close();
+    }
+
+    public long CreateEntry(String name, String cell){
+        ContentValues cv = new ContentValues();
+        cv.put(KEY_NAME,name);
+        cv.put(KEY_CELL,cell);
+        return ourDatabase.insert(DATABASE_TABLE,null,cv);
     }
 }
