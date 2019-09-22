@@ -3,9 +3,13 @@ package myfirst.isuru.com.readdatafromrssfeed;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import org.xmlpull.v1.XmlPullParser;
@@ -29,12 +33,15 @@ public class MainActivity extends AppCompatActivity {
         lvRss=(ListView) findViewById(R.id.lvRss);
         titles=new ArrayList<String>();
         links=new ArrayList<String>();
-        lvRss.setOnClickListener(new View.OnClickListener() {
+        lvRss.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onClick(View v) {
-
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Uri uri=Uri.parse(links.get(position));
+                Intent intent=new Intent(Intent.ACTION_VIEW,uri);
+                startActivity(intent);
             }
         });
+        new ProcessInBackground().execute();
     }
 
     public InputStream getInputStream(URL url){
@@ -45,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public class ProcessInBackground extends AsyncTask<Integer,Void,String>{
+    public class ProcessInBackground extends AsyncTask<Integer, Void, Exception> {
 
         ProgressDialog progressDialog=new ProgressDialog(MainActivity.this);
         Exception exception;
@@ -58,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         @Override
-        protected String doInBackground(Integer... integers) {
+        protected Exception doInBackground(Integer... integers) {
             try {
                 URL url=new URL("http://feeds.news24.com/articles/fin24/tech/rss");
                 XmlPullParserFactory factory=XmlPullParserFactory.newInstance();
@@ -88,13 +95,14 @@ public class MainActivity extends AppCompatActivity {
             }catch (IOException e){
                 exception=e;
             }
-
-            return null;
+            return exception;
         }
 
         @Override
-        protected void onPostExecute(String s) {
+        protected void onPostExecute(Exception s) {
             super.onPostExecute(s);
+            ArrayAdapter<String> adapter= new ArrayAdapter<String>(MainActivity.this,android.R.layout.simple_list_item_1,titles);
+            lvRss.setAdapter(adapter);
             progressDialog.dismiss();
         }
     }
