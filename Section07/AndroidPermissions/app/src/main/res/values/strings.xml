@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Android Permissions</string>
+    <string name="do_something">Do Something</string>
+</resources>
