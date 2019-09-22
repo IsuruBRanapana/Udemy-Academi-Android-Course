@@ -1,10 +1,13 @@
 package myfirst.isuru.com.androidpermissions;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
@@ -30,5 +33,30 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode==UNIQUE_REQUEST_CODE){
+            if (grantResults[0]==PackageManager.PERMISSION_GRANTED){
+                Toast.makeText(MainActivity.this,"Thank You For The Permission",Toast.LENGTH_SHORT).show();
+            }else if (grantResults[0]==PackageManager.PERMISSION_DENIED){
+                AlertDialog.Builder dialog=new AlertDialog.Builder(this);
+                dialog.setMessage("This Permission is required!!").setTitle("Permission Required");
+                dialog.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+                dialog.setNegativeButton("No Thanks", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+                dialog.show();
+            }
+        }
     }
 }
