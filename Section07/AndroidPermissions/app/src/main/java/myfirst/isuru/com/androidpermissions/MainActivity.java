@@ -40,22 +40,26 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode==UNIQUE_REQUEST_CODE){
             if (grantResults[0]==PackageManager.PERMISSION_GRANTED){
                 Toast.makeText(MainActivity.this,"Thank You For The Permission",Toast.LENGTH_SHORT).show();
-            }else if (grantResults[0]==PackageManager.PERMISSION_DENIED){
-                AlertDialog.Builder dialog=new AlertDialog.Builder(this);
-                dialog.setMessage("This Permission is required!!").setTitle("Permission Required");
-                dialog.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-
-                    }
-                });
-                dialog.setNegativeButton("No Thanks", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-
-                    }
-                });
-                dialog.show();
+            }else if (grantResults[0]==PackageManager.PERMISSION_DENIED) {
+                if (ActivityCompat.shouldShowRequestPermissionRationale(MainActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+                    AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+                    dialog.setMessage("This Permission is required!!").setTitle("Permission Required");
+                    dialog.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, UNIQUE_REQUEST_CODE);
+                        }
+                    });
+                    dialog.setNegativeButton("No Thanks", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Toast.makeText(MainActivity.this, "Your Request cannot be done", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                    dialog.show();
+                }else {
+                    Toast.makeText(MainActivity.this,"We will never Show this",Toast.LENGTH_SHORT).show();
+                }
             }
         }
     }
