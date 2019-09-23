@@ -11,7 +11,7 @@ MediaPlayer.OnErrorListener,MediaPlayer.OnSeekCompleteListener, MediaPlayer.OnIn
 
     private MediaPlayer mediaPlayer;
     String link;
-
+    private MusicStoppedListner musicStoppedListner;
     public MyMusicService() {
 
     }
@@ -32,6 +32,7 @@ MediaPlayer.OnErrorListener,MediaPlayer.OnSeekCompleteListener, MediaPlayer.OnIn
     public int onStartCommand(Intent intent, int flags, int startId) {
         link=intent.getStringExtra("AudioLink");
         mediaPlayer.reset();
+        musicStoppedListner=(MusicStoppedListner) Applicationclass.context;
         if (!mediaPlayer.isPlaying()){
             try {
                 mediaPlayer.setDataSource(link);
@@ -96,6 +97,9 @@ MediaPlayer.OnErrorListener,MediaPlayer.OnSeekCompleteListener, MediaPlayer.OnIn
 
     @Override
     public void onPrepared(MediaPlayer mp) {
+        if (!mp.isPlaying()){
+            mp.start();
+        }
 
     }
 
