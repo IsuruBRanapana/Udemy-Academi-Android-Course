@@ -5,9 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class Login extends AppCompatActivity {
@@ -16,6 +19,10 @@ public class Login extends AppCompatActivity {
     private View mLoginFormView;
     private TextView tvLoad;
 
+    EditText etEmail,etPassword;
+    Button btnLogIn,btnReg;
+    TextView tvReset;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,7 +30,35 @@ public class Login extends AppCompatActivity {
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
         tvLoad = findViewById(R.id.tvLoad);
-        showProgress(true);
+
+        etEmail=findViewById(R.id.etEmail);
+        etPassword=findViewById(R.id.etPassword);
+        btnLogIn=findViewById(R.id.btnLogIn);
+        btnReg=findViewById(R.id.btnReg);
+        tvReset=findViewById(R.id.tvReset);
+
+
+        btnLogIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+
+        btnReg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Login.this,Reg.class));
+            }
+        });
+
+        tvReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
     }
     /**
