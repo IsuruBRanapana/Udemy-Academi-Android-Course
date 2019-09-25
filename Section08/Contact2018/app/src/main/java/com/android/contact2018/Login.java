@@ -12,6 +12,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.backendless.Backendless;
+import com.backendless.BackendlessUser;
+import com.backendless.async.callback.AsyncCallback;
+import com.backendless.exceptions.BackendlessFault;
 
 public class Login extends AppCompatActivity {
 
@@ -41,6 +47,27 @@ public class Login extends AppCompatActivity {
         btnLogIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String email=etEmail.getText().toString().trim();
+                String password=etPassword.getText().toString().trim();
+                if (etEmail.getText().toString().isEmpty()||etPassword.getText().toString().isEmpty()){
+                    Toast.makeText(Login.this,"Please Fill the All fields",Toast.LENGTH_SHORT).show();
+                }else{
+                    showProgress(true);
+                    Backendless.UserService.login(email, password, new AsyncCallback<BackendlessUser>() {
+                        @Override
+                        public void handleResponse(BackendlessUser response) {
+                            Toast.makeText(Login.this,"Logged in Successfully",Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(Login.this,MainActivity.class));
+                            Login.this.finish();
+                        }
+
+                        @Override
+                        public void handleFault(BackendlessFault fault) {
+                            Toast.makeText(Login.this,"Error : "+fault.getMessage(),Toast.LENGTH_SHORT).show();
+                            showProgress(false);
+                        }
+                    }, true);
+                }
 
             }
         });
