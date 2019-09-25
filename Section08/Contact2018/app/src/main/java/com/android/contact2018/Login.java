@@ -18,6 +18,7 @@ import com.backendless.Backendless;
 import com.backendless.BackendlessUser;
 import com.backendless.async.callback.AsyncCallback;
 import com.backendless.exceptions.BackendlessFault;
+import com.backendless.persistence.local.UserIdStorageFactory;
 
 public class Login extends AppCompatActivity {
 
@@ -107,7 +108,38 @@ public class Login extends AppCompatActivity {
             }
         });
 
+        showProgress(true);
+        Backendless.UserService.isValidLogin(new AsyncCallback<Boolean>() {
+            @Override
+            public void handleResponse(Boolean response) {
+                if (response){
+                    String userObjectId= UserIdStorageFactory.instance().getStorage().get();
+                    Backendless.Data.of(BackendlessUser.class).findById(userObjectId, new AsyncCallback<BackendlessUser>() {
+                        @Override
+                        public void handleResponse(BackendlessUser response) {
+                            startActivity(new Intent(Login.this,MainActivity.class));
+                        }
+
+                        @Override
+                        public void handleFault(BackendlessFault fault) {
+                            Toast.makeText(Login.this,"Error : "+fault.getMessage(),Toast.LENGTH_SHORT).show();
+                            showProgress(false);
+                        }
+                    });
+                }else {
+                    showProgress(false);
+                }
+            }
+
+            @Override
+            public void handleFault(BackendlessFault fault) {
+                Toast.makeText(Login.this,"Error : "+fault.getMessage(),Toast.LENGTH_SHORT).show();
+                showProgress(false);
+            }
+        });
+
     }
+
     /**
      * Shows the progress UI and hides the login form.
      */
