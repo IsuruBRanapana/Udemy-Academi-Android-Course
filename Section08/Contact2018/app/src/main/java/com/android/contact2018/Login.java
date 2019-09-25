@@ -83,6 +83,26 @@ public class Login extends AppCompatActivity {
         tvReset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String email=etEmail.getText().toString().trim();
+                if (etEmail.getText().toString().isEmpty()){
+                    Toast.makeText(Login.this,"Please enter your Email",Toast.LENGTH_SHORT).show();
+                }else {
+                    showProgress(true);
+                    Backendless.UserService.restorePassword(email, new AsyncCallback<Void>() {
+                        @Override
+                        public void handleResponse(Void response) {
+                            Toast.makeText(Login.this,"Reset link is send to Your E mail",Toast.LENGTH_SHORT).show();
+                            showProgress(false);
+
+                        }
+
+                        @Override
+                        public void handleFault(BackendlessFault fault) {
+                            Toast.makeText(Login.this,"Error: "+fault.getMessage(),Toast.LENGTH_SHORT).show();
+                            showProgress(false);
+                        }
+                    });
+                }
 
             }
         });
