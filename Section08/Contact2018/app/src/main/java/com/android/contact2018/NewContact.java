@@ -13,6 +13,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.backendless.Backendless;
+import com.backendless.BackendlessUser;
+import com.backendless.async.callback.AsyncCallback;
+import com.backendless.exceptions.BackendlessFault;
+
 public class NewContact extends AppCompatActivity {
 
     EditText etConName,etConEmail, etConTel;
@@ -51,6 +56,26 @@ public class NewContact extends AppCompatActivity {
                     contact.setEmail(email);
                     contact.setNumber(telNo);
                     contact.setUserEmail(ApplicationClass.user.getEmail());
+
+                    showProgress(true);
+                    tvLoad.setText("Contact creating .. Please wait..");
+                    Backendless.Persistence.save(contact, new AsyncCallback<Contacts>() {
+                        @Override
+                        public void handleResponse(Contacts response) {
+                            Toast.makeText(NewContact.this,"Contact Created",Toast.LENGTH_SHORT).show();
+                            showProgress(false);
+
+                            etConEmail.setText("");
+                            etConName.setText("");
+                            etConTel.setText("");
+                        }
+
+                        @Override
+                        public void handleFault(BackendlessFault fault) {
+                            Toast.makeText(NewContact.this,"Error : "+fault.getMessage(),Toast.LENGTH_SHORT).show();
+                            showProgress(false);
+                        }
+                    });
                 }
 
             }
