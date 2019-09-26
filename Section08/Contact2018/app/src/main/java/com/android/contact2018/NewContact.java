@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class NewContact extends AppCompatActivity {
 
@@ -37,6 +38,20 @@ public class NewContact extends AppCompatActivity {
         btnConCreate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (etConName.getText().toString().isEmpty()||etConEmail.getText().toString().isEmpty()||
+                etConTel.getText().toString().isEmpty()){
+                    Toast.makeText(NewContact.this,"Fill all fields",Toast.LENGTH_SHORT).show();
+                }else {
+                    String name=etConName.getText().toString().trim();
+                    String email=etConEmail.getText().toString().trim();
+                    String telNo=etConTel.getText().toString().trim();
+
+                    Contacts contact = new Contacts();
+                    contact.setName(name);
+                    contact.setEmail(email);
+                    contact.setNumber(telNo);
+                    contact.setUserEmail(ApplicationClass.user.getEmail());
+                }
 
             }
         });
