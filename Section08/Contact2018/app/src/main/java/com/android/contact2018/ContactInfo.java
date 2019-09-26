@@ -124,7 +124,23 @@ public class ContactInfo extends AppCompatActivity {
                 dialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        showProgress(true);
+                        tvLoad.setText("Item is Deleting");
+                        Backendless.Persistence.of(Contacts.class).remove(ApplicationClass.contacts.get(index), new AsyncCallback<Long>() {
+                            @Override
+                            public void handleResponse(Long response) {
+                                ApplicationClass.contacts.remove(index);
+                                Toast.makeText(ContactInfo.this,"Successfully Removed",Toast.LENGTH_SHORT).show();
+                                setResult(RESULT_OK);
+                                ContactInfo.this.finish();
+                            }
 
+                            @Override
+                            public void handleFault(BackendlessFault fault) {
+                                Toast.makeText(ContactInfo.this,"Error : "+fault.getMessage(),Toast.LENGTH_SHORT).show();
+                                showProgress(false);
+                            }
+                        });
                     }
                 });
                 dialog.setNegativeButton("No", new DialogInterface.OnClickListener() {

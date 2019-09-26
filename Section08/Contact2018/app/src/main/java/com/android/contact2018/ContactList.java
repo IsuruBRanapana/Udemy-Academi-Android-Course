@@ -50,9 +50,9 @@ public class ContactList extends AppCompatActivity {
             }
         });
 
-        String whereClouse="userEmail= '"+ApplicationClass.user.getEmail()+"'";
+        String whereClause="userEmail= '"+ApplicationClass.user.getEmail()+"'";
         DataQueryBuilder queryBuilder=DataQueryBuilder.create();
-        queryBuilder.setWhereClause(whereClouse);
+        queryBuilder.setWhereClause(whereClause);
         queryBuilder.setGroupBy("name");
         showProgress(true);
         tvLoad.setText("Contacts Loading");
