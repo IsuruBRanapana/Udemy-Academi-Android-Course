@@ -10,12 +10,23 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.backendless.Backendless;
+import com.backendless.BackendlessUser;
+import com.backendless.async.callback.AsyncCallback;
+import com.backendless.exceptions.BackendlessFault;
+import com.backendless.persistence.DataQueryBuilder;
+
+import java.util.List;
 
 public class ContactList extends AppCompatActivity {
 
     private View mProgressView;
     private View mLoginFormView;
     private TextView tvLoad;
+
+    ContactAdapter adapter;
 
     ListView lvList;
     @Override
@@ -27,6 +38,28 @@ public class ContactList extends AppCompatActivity {
         tvLoad = findViewById(R.id.tvLoad);
 
         lvList=findViewById(R.id.lvList);
+
+        String whereClouse="userEmail= '"+ApplicationClass.user.getEmail()+"'";
+        DataQueryBuilder queryBuilder=DataQueryBuilder.create();
+        queryBuilder.setWhereClause(whereClouse);
+        queryBuilder.setGroupBy("name");
+        showProgress(true);
+        tvLoad.setText("Contacts Loading");
+        Backendless.Persistence.of(Contacts.class).find(queryBuilder, new AsyncCallback<List<Contacts>>() {
+            @Override
+            public void handleResponse(List<Contacts> response) {
+                ApplicationClass.contacts=response;
+                adapter = new ContactAdapter(ContactList.this,ApplicationClass.contacts);
+                lvList.setAdapter(adapter);
+                showProgress(false);
+            }
+
+            @Override
+            public void handleFault(BackendlessFault fault) {
+                Toast.makeText(ContactList.this,"Error : "+fault.getMessage(),Toast.LENGTH_SHORT).show();
+                showProgress(false);
+            }
+        });
     }
 
     /**
