@@ -12,12 +12,17 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptor;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
+    private static final LatLng MENLYN_PRETORIA=new LatLng(-25.782420,28.275439);
+    private static final LatLng PROTE_HOTEL=new LatLng(-25.786508,28.271187);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,10 +48,25 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        mMap.addMarker(new MarkerOptions()
+                .icon(BitmapDescriptorFactory.fromResource(R.mipmap.hotel))
+                .anchor(0.0f,1.0f)
+                .title("Menlyn pretoria")
+                .position(MENLYN_PRETORIA));
+
+        mMap.addMarker(new MarkerOptions()
+                .icon(BitmapDescriptorFactory.fromResource(R.mipmap.mall))
+                .anchor(0.0f,1.0f)
+                .title("Prote hotel")
+                .position(PROTE_HOTEL));
+
+        CameraPosition cameraPosition=new CameraPosition.Builder()
+                .target(MENLYN_PRETORIA)
+                .zoom(16)
+                .bearing(0)
+                .tilt(30)
+                .build();
+        mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
     }
 
     @Override
