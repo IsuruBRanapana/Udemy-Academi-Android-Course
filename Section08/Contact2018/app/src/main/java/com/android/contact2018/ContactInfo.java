@@ -68,7 +68,7 @@ public class ContactInfo extends AppCompatActivity {
         etEmail.setText(ApplicationClass.contacts.get(index).getEmail());
         etTel.setText(ApplicationClass.contacts.get(index).getNumber());
 
-        tvLetter.setText(ApplicationClass.contacts.get(index).getName().toUpperCase().charAt(0));
+        tvLetter.setText(ApplicationClass.contacts.get(index).getName().toUpperCase().charAt(0)+"");
         tvName.setText(ApplicationClass.contacts.get(index).getName());
 
 
