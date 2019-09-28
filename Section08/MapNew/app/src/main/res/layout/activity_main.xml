@@ -8,52 +8,52 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnfamily"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="30dp"
         android:background="@drawable/button"
-        android:text="Button" />
+        android:text="Show Family" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnArundi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="30dp"
         android:background="@drawable/button"
-        android:text="Button" />
+        android:text="Log In Arundi" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btnThilini"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="30dp"
         android:background="@drawable/button"
-        android:text="Button" />
+        android:text="Log In Thilini" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/btnIsuru"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="30dp"
         android:background="@drawable/button"
-        android:text="Button" />
+        android:text="Log In Isuru" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/btnCharuni"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="30dp"
         android:background="@drawable/button"
-        android:text="Button" />
+        android:text="Log In Charuni" />
 </LinearLayout>
