@@ -14,8 +14,14 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
+import com.backendless.Backendless;
+import com.backendless.async.callback.AsyncCallback;
+import com.backendless.exceptions.BackendlessFault;
+import com.backendless.geo.BackendlessGeoQuery;
 import com.backendless.geo.GeoPoint;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -25,7 +31,11 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback , LocationListener {
 
@@ -41,6 +51,127 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
+        ibSend=(ImageButton) findViewById(R.id.ibSend);
+
+        String type=getIntent().getStringExtra("type");
+        if (type.equals("family")){
+            ibSend.setVisibility(View.GONE);
+            BackendlessGeoQuery geoQuery=new BackendlessGeoQuery();
+            geoQuery.addCategory("family");
+            geoQuery.setIncludeMeta(true);
+
+            Backendless.Geo.getPoints(geoQuery, new AsyncCallback<List<GeoPoint>>() {
+                @Override
+                public void handleResponse(List<GeoPoint> response) {
+                     list=response;
+                     if (list.size()!=0){
+                         for (int i=0;i<list.size();i++){
+                             LatLng positionMaker=new LatLng(list.get(i).getLatitude(),list.get(i).getLongitudeE6());
+                             mMap.addMarker(new MarkerOptions().position(positionMaker).snippet(list.get(i).getMetadata("updated").toString()).title(list.get(i).getMetadata("name").toString()));
+
+
+                         }
+                     }
+                }
+
+                @Override
+                public void handleFault(BackendlessFault fault) {
+                    Toast.makeText(MapsActivity.this,"Error :"+fault.getMessage(),Toast.LENGTH_SHORT).show();
+                }
+            });
+        }else {
+            ibSend.setVisibility(View.GONE);
+            BackendlessGeoQuery geoQuery=new BackendlessGeoQuery();
+            geoQuery.addCategory("family");
+            geoQuery.setIncludeMeta(true);
+
+            Backendless.Geo.getPoints(geoQuery, new AsyncCallback<List<GeoPoint>>() {
+                @Override
+                public void handleResponse(List<GeoPoint> response) {
+                    list=response;
+                    if (list.size()!=0){
+                        for (int i=0;i<list.size();i++){
+                            if (list.get(i).getMetadata("name").toString().equals(getIntent().getStringExtra("type"))){
+                                isExistingPoint=true;
+                                existingPoint=list.get(i);
+                                break;
+                            }
+                        }
+                    }
+                    ibSend.setVisibility(View.VISIBLE);
+                }
+
+                @Override
+                public void handleFault(BackendlessFault fault) {
+                    Toast.makeText(MapsActivity.this,"Error :"+fault.getMessage(),Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+
+        ibSend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MapsActivity.this,"Busy..",Toast.LENGTH_SHORT).show();
+                if (!isExistingPoint){
+                    List<String> categories=new ArrayList<String>();
+                    categories.add("family");
+
+                    Map<String,Object> meta=new HashMap<String,Object>();
+                    meta.put("name",getIntent().getStringExtra("type"));
+                    meta.put("updated",new Date().toString());
+
+                    Backendless.Geo.savePoint(lat, lng, categories, meta, new AsyncCallback<GeoPoint>() {
+                        @Override
+                        public void handleResponse(GeoPoint response) {
+                            Toast.makeText(MapsActivity.this,"Success",Toast.LENGTH_SHORT).show();
+                            isExistingPoint=true;
+                            existingPoint=response;
+
+                        }
+
+                        @Override
+                        public void handleFault(BackendlessFault fault) {
+                            Toast.makeText(MapsActivity.this,"Error :"+fault.getMessage(),Toast.LENGTH_SHORT).show();
+
+                        }
+                    });
+                }else {
+                    Backendless.Geo.removePoint(existingPoint, new AsyncCallback<Void>() {
+                        @Override
+                        public void handleResponse(Void response) {
+                            List<String> categories=new ArrayList<String>();
+                            categories.add("family");
+
+                            Map<String,Object> meta=new HashMap<String,Object>();
+                            meta.put("name",getIntent().getStringExtra("type"));
+                            meta.put("updated",new Date().toString());
+
+                            Backendless.Geo.savePoint(lat, lng, categories, meta, new AsyncCallback<GeoPoint>() {
+                                @Override
+                                public void handleResponse(GeoPoint response) {
+                                    Toast.makeText(MapsActivity.this,"Success",Toast.LENGTH_SHORT).show();
+                                    isExistingPoint=true;
+                                    existingPoint=response;
+
+                                }
+
+                                @Override
+                                public void handleFault(BackendlessFault fault) {
+                                    Toast.makeText(MapsActivity.this,"Error :"+fault.getMessage(),Toast.LENGTH_SHORT).show();
+
+                                }
+                            });
+                        }
+
+                        @Override
+                        public void handleFault(BackendlessFault fault) {
+                            Toast.makeText(MapsActivity.this,"Error :"+fault.getMessage(),Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+                }
+            }
+        });
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);

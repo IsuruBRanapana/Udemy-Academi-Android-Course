@@ -25,18 +25,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Backendless.Geo.addCategory("Family", new AsyncCallback<GeoCategory>() {
-            @Override
-            public void handleResponse(GeoCategory response) {
-
-            }
-
-            @Override
-            public void handleFault(BackendlessFault fault) {
-
-            }
-        });
-
         btnFamily=(Button) findViewById(R.id.btnfamily);
         btnArundi=(Button) findViewById(R.id.btnArundi);
         btnThilini=(Button) findViewById(R.id.btnThilini);
